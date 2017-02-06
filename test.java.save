@@ -1,8 +1,0 @@
-import numja.goofi;
-public class test{
-      public static void main(String[] arg){
-                         double[][] k=goofi.randomize(3,4);
-                         double[][] m=goofi.randomize(1,4);
-                         goofi.printmat(goofi.exp(goofi.neg(k)));
-                                           }
-                 }
