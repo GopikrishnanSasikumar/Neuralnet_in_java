@@ -1,0 +1,34 @@
+yimport numja.goofi;
+public class neural_java{
+             public static double[][] nonlin(double[][] x){
+                              return goofi.divmat(1,goofi.addvalmat(1,goofi.exp(goofi.neg(x))));
+                                                 }
+             public static double[][] nonlinderiv(double[][] x){
+                              return goofi.dot(x,goofi.subvalmat(1,x));
+                                                      }
+             public static void main(String[] args){
+                                double[][] x={{0,0,1},{0,1,1},{1,0,1},{1,1,1}};
+                                double[][] y={{0},{1},{1},{0}};
+                                double[][] syn0=goofi.randomize(3,4);
+                                double[][] syn1=goofi.randomize(4,1);
+                                for(int i=0;i<60000;i++){
+                                    double[][] l0=x;
+                                    double[][] l1=nonlin(goofi.matmul(l0,syn0));
+                                    double[][] l2=nonlin(goofi.matmul(l1,syn1));
+                                    double[][] l2error=goofi.submat(y,l2);
+                                    if(i%10000==0){
+                                       double k=goofi.mean(goofi.abs(l2error));
+                                       goofi.printmat(l2);
+                                       System.out.println(k);
+                                                  }
+                                    double[][] delta2=goofi.dot(l2error,nonlinderiv(l2));
+                                    double[][] l1error=goofi.matmul(delta2,goofi.transpose(syn1));
+                                    double[][] delta1=goofi.dot(l1error,nonlinderiv(l1));
+                                    syn1=goofi.addmat(syn1,goofi.matmul(goofi.transpose(l1),delta2));
+                                    syn0=goofi.addmat(syn0,goofi.matmul(goofi.transpose(l0),delta1));
+                                    goofi.printmat(syn1); 
+                                    goofi.printmat(syn0);
+
+                                                    }
+                                       }
+                        }

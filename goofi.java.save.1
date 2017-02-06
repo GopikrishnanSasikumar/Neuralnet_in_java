@@ -1,0 +1,158 @@
+ypackage numja;
+import java.lang.*;
+
+public class goofi{
+
+             public static double[][]  exp(double x[][]){
+                                      double[][] k=new double[x.length][x[0].length];
+                                      for(int i=0;i<x.length;i++){
+                                          for(int j=0;j<x[i].length;j++){
+                                              k[i][j]=(double)Math.exp(x[i][j]);
+                                                                        }
+                                                                 }
+                                      return k;
+                                                      }
+             public static double[][]  randomize(int x,int y){ 
+                                      double[][] grid =new double[x][y];
+                                      for(int i=0;i<grid.length;i++){
+                                         for(int j=0;j<grid[i].length;j++){
+                                             double randouble=(Math.random()*2)-1;
+                                             System.out.println(randouble);
+                                             grid[i][j]=randouble;
+                                                                          }
+                                                                    }
+                                      return grid;
+                                                            }
+             public static double[][] transpose(double[][] x){
+                                     
+                                     double[][] k=new double[x[0].length][x.length];
+                                     for(int i=0;i<k.length;i++){ 
+                                          for(int j=0;j<k[i].length;j++){
+                                              k[i][j]=x[j][i];
+                                                                        }
+                                                                }
+                                     return k;
+                                                           }
+             public static double[][] matmul(double[][] x,double[][] y){
+                                     double sum=0;
+                                     
+                                     double[][] mult=new double[x.length][y[0].length];
+                                     for(int i=0;i<x.length;i++){
+                                         for(int j=0;j<y[0].length;j++){
+                                             for(int k=0;k<y.length;k++){
+                                                 sum=sum+x[i][k]*y[k][j];
+                                                                        }
+                                             mult[i][j]=sum;
+                                             sum=0;
+                                                                       }
+                                                                }
+                                     return mult;
+                                                                  }
+
+             public static double[][]  abs(double x[][]){
+                                      double[][] k=new double[x.length][x[0].length];
+                                      for(int i=0;i<x.length;i++){
+                                          for(int j=0;j<x[i].length;j++){
+                                              k[i][j]=Math.abs(x[i][j]);
+                                                                        }
+                                                                 }
+                                      return k;
+                                                      }
+             public static void printmat(double[][] x){
+                                System.out.println();
+                                System.out.print("[");
+                                for(int i=0;i<x.length;i++){
+                                    System.out.print("[");
+                                    for(int j=0;j<x[i].length;j++){
+                                        System.out.print(x[i][j]+" ");
+                                                                  }
+                                    System.out.print("]");
+                                    System.out.println();
+                                                           }
+                                System.out.print("]");
+                                System.out.println();
+                                                     }
+
+               public static double[][]  zeros(int x,int y){ 
+                                      double[][] grid =new double[x][y];
+                                      for(int i=0;i<grid.length;i++){
+                                         for(int j=0;j<grid[i].length;j++){
+                                             grid[i][j]=0;
+                                                                          }
+                                                                    }
+                                      return grid;
+                                                            }
+               public static double[][] addmat(double[][] x,double[][] y){
+                                       double[][]  sum=new double[x.length][y[0].length];
+                                       for(int i=0;i<sum.length;i++){
+                                           for(int j=0;j<sum[0].length;j++){
+                                               sum[i][j]=x[i][j]+y[i][j];
+                                                                           }
+                                                                    }
+                                       return sum;
+                                                                      } 
+               public static double[][] submat(double[][] x,double[][] y){
+                                       double[][]  sub=new double[x.length][y[0].length];
+                                       for(int i=0;i<sub.length;i++){
+                                           for(int j=0;j<sub[0].length;j++){
+                                               sub[i][j]=x[i][j]-y[i][j];
+                                                                           }
+                                                                    }
+                                       return sub;
+                                                                      } 
+               public static double[][]  neg(double x[][]){
+                                      double[][] k=new double[x.length][x[0].length];
+                                      for(int i=0;i<x.length;i++){
+                                          for(int j=0;j<x[i].length;j++){
+                                              k[i][j]= -x[i][j];
+                                                                        }
+                                                                 }
+                                      return k;
+                                                        }
+               public static double[][] subvalmat(int x,double[][] y){
+                                       double[][]  sum=new double[y.length][y[0].length];
+                                       for(int i=0;i<sum.length;i++){
+                                           for(int j=0;j<sum[0].length;j++){
+                                               sum[i][j]=x-y[i][j];
+                                                                           }
+                                                                    }
+                                       return sum;
+                                                                   }
+
+              public static double[][] addvalmat(int x,double[][] y){
+                                       double[][]  sum=new double[y.length][y[0].length];
+                                       for(int i=0;i<sum.length;i++){
+                                           for(int j=0;j<sum[0].length;j++){
+                                               sum[i][j]=x+y[i][j];
+                                                                           }
+                                                                    }
+                                       return sum;
+                                                                      } 
+              public static double[][] divmat(double x,double[][] y){
+                                       double[][]  sum=new double[y.length][y[0].length];
+                                       for(int i=0;i<sum.length;i++){
+                                           for(int j=0;j<sum[0].length;j++){
+                                               sum[i][j]=x/y[i][j];
+                                                                           }
+                                                                    }
+                                       return sum;
+                                                                   }
+              public static double[][] dot(double[][] x,double[][] y){
+                                       double[][]  sum=new double[x.length][y[0].length];
+                                       for(int i=0;i<sum.length;i++){
+                                           for(int j=0;j<sum[0].length;j++){
+                                               sum[i][j]=x[i][j]*y[i][j];
+                                                                           }
+                                                                    }
+                                       return sum;
+                                                                      } 
+              public static double mean(double x[][]){
+                                      double k=0;
+                                      for(int i=0;i<x.length;i++){
+                                          for(int j=0;j<x[i].length;j++){
+                                              k+=x[i][j];
+                                                                        }
+                                                                 }
+                                      return k/x[0].length;
+                                                      }
+}

@@ -1,0 +1,7 @@
+import numja.goofi;
+public class neural_java{
+             public float[][] nonlin(float[][] x,boolean deriv=false){
+                              if(deriv){
+                                 return goofi.matmul(x,submat(1,x));
+                                       }
+                              return 1/}}
