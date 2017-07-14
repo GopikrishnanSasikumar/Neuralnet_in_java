@@ -1,0 +1,2 @@
+javac neural_java.java
+java neural_java
